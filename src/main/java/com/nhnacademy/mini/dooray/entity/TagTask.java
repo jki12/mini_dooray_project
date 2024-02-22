@@ -1,13 +1,19 @@
 package com.nhnacademy.mini.dooray.entity;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "tag_tasks")
-//@IdClass(TagTaskId.class) // 복합 키를 위한 IdClass 지정
 public class TagTask {
+    @EmbeddedId
+    private Pk pk;
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
@@ -18,6 +24,13 @@ public class TagTask {
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "tag_id")
 //    private Tag tag;
+
+    @Embeddable
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Pk implements Serializable {
+
+    }
 
     // project_id는 Task와 TagTask 사이의 관계를 나타내는 데 사용되지만,
     // JPA에서는 이러한 형태의 복합 외래 키를 직접 매핑하지 않습니다.

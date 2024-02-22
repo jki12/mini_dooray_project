@@ -16,7 +16,7 @@ public class User {
 
     @Id
     @Column(name = "user_id")
-    private Long userId;
+    private String userId;
 
     @Column(name = "user_name", nullable = false)
     private String userName;
@@ -27,9 +27,7 @@ public class User {
     @Column(name = "user_email")
     private String userEmail;
 
-//    @OneToMany(mappedBy = "user")
-//    private List<ProjectMember> projectMembers;
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Comment> comments;
+    @OneToOne
+    @JoinColumn(name = "state_id")
+    private State state;
 }
