@@ -18,10 +18,6 @@ public class Comment {
     @JoinColumn(name = "task_id")
     private Task task;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
     @Column(name = "comment_content")
     private String commentContent;
 

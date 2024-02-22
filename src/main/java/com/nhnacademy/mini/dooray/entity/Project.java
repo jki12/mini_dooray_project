@@ -1,5 +1,6 @@
 package com.nhnacademy.mini.dooray.entity;
 
+import com.nhnacademy.mini.dooray.domain.StateType;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,6 @@ public class Project {
     @Column(name = "project_name", length = 32)
     private String projectName;
 
-    @ManyToOne
-    @JoinColumn(name = "project_state_id")
-    private State state;
+    @Column(name = "project_state")
+    private StateType projectState;
 }

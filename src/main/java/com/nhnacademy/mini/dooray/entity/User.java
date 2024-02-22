@@ -1,5 +1,6 @@
 package com.nhnacademy.mini.dooray.entity;
 
+import com.nhnacademy.mini.dooray.domain.StateType;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -27,7 +28,6 @@ public class User {
     @Column(name = "user_email")
     private String userEmail;
 
-    @OneToOne
-    @JoinColumn(name = "state_id")
-    private State state;
+    @Column(name = "user_state")
+    private StateType userState;
 }

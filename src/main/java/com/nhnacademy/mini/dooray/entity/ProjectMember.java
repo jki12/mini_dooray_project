@@ -1,5 +1,6 @@
 package com.nhnacademy.mini.dooray.entity;
 
+import com.nhnacademy.mini.dooray.domain.RoleType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +11,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "project_members")
+@Table(name = "project_users")
 public class ProjectMember {
     @EmbeddedId
     private Pk pk;
@@ -25,9 +26,8 @@ public class ProjectMember {
     @JoinColumn(name = "project_id")
     private Project project;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
+    @Column(name = "project_user_role")
+    private RoleType projectUserRole;
 
     @Embeddable
     @NoArgsConstructor
