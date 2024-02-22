@@ -1,5 +1,6 @@
 package com.nhnacademy.mini.dooray.entity;
 
+import com.nhnacademy.mini.dooray.domain.StateType;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -16,7 +17,7 @@ public class User {
 
     @Id
     @Column(name = "user_id")
-    private Long userId;
+    private String userId;
 
     @Column(name = "user_name", nullable = false)
     private String userName;
@@ -27,9 +28,6 @@ public class User {
     @Column(name = "user_email")
     private String userEmail;
 
-    @OneToMany(mappedBy = "user")
-    private List<ProjectMember> projectMembers;
-
-    @OneToMany(mappedBy = "user")
-    private List<Comment> comments;
+    @Column(name = "user_state")
+    private StateType userState;
 }

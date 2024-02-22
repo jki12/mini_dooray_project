@@ -11,23 +11,18 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "project_users")
-public class ProjectMember {
+@Table(name = "task_users")
+public class TaskUser {
     @EmbeddedId
     private Pk pk;
 
-    @MapsId("userId")
+    @MapsId("taskId")
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "task_id")
+    private Task task;
 
-    @MapsId("projectId")
-    @ManyToOne
-    @JoinColumn(name = "project_id")
-    private Project project;
-
-    @Column(name = "project_user_role")
-    private RoleType projectUserRole;
+    @Column(name = "task_user_role")
+    private RoleType taskUserRole;
 
     @Embeddable
     @NoArgsConstructor
@@ -36,7 +31,7 @@ public class ProjectMember {
         @Column(name = "user_id")
         private String userId;
 
-        @Column(name = "project_id")
-        private Long projectId;
+        @Column(name = "task_id")
+        private Long taskId;
     }
 }
