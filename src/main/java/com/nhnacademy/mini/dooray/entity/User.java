@@ -3,14 +3,10 @@ package com.nhnacademy.mini.dooray.entity;
 import com.nhnacademy.mini.dooray.domain.StateType;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Data
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name = "users")
 public class User {
