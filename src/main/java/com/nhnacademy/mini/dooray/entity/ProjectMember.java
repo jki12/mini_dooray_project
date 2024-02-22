@@ -8,7 +8,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "project_members")
-//@IdClass(ProjectMemberId.class)
 public class ProjectMember {
 
 //    @Id
